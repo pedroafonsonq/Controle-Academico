@@ -11,7 +11,7 @@ O sistema legado possuia um defeito critico no metodo calcularMedia da classe Co
 * Codigo com Defeito:
 ```java
 public double calcularMedia(double nota1, double nota2) {
-    return nota1 + nota2 / 2; // Executa nota2 / 2 e depois soma com nota1
+    return nota1 + nota2 / 2;
 }
 A Solucao Aplicada
 A correcao aplicada garantiu a precedencia da soma das notas antes de realizar a divisao por dois, utilizando tipos de ponto flutuante adequados para evitar truncamento de valores.
@@ -20,7 +20,7 @@ Codigo Corrigido:
 
 Java
 public double calcularMedia(double nota1, double nota2) {
-    return (nota1 + nota2) / 2.0; // Soma primeiro, divide depois
+    return (nota1 + nota2) / 2.0;
 }
 Estrutura dos Testes Automatizados (JUnit 5)
 Foi desenvolvida uma suite de testes com a assercao assertEquals para validar o comportamento do metodo antes e depois da refatoracao:
