@@ -1,50 +1,49 @@
-Markdown
-# Controle Acadêmico - Análise de Testes com JUnit 5
+# Controle Academico - Analise de Testes com JUnit 5
 
-Este projeto faz parte de uma atividade prática de Engenharia de Software / Verificação e Validação de Software, ministrada pelo **Prof. Douglas**. O objetivo principal foi realizar o diagnóstico e a manutenção corretiva de um bug de lógica matemática em um sistema legado de controle acadêmico utilizando o framework **JUnit 5**.
+Este projeto faz parte de uma atividade pratica de Engenharia de Software / Verificacao e Validacao de Software, ministrada pelo Prof. Douglas. O objetivo principal foi realizar o diagnostico e a manutencao corretiva de um bug de logica matematica em um sistema legado de controle academico utilizando o framework JUnit 5.
 
 ---
 
-##  O Problema Diagnosticado
+## O Problema Diagnosticado
 
-O sistema legado possuía um defeito crítico no método `calcularMedia` da classe `ControleAcademicoService`. Devido à **falta de parênteses para isolar a operação de soma**, o Java executava primeiro a divisão (por regras de precedência matemática), gerando médias completamente erradas.
+O sistema legado possuia um defeito critico no metodo calcularMedia da classe ControleAcademicoService. Devido a falta de parenteses para isolar a operacao de soma, o Java executava primeiro a divisao (por regras de precedencia matematica), gerando medias completamente erradas.
 
-* **Código com Defeito:**
+* Codigo com Defeito:
 ```java
 public double calcularMedia(double nota1, double nota2) {
     return nota1 + nota2 / 2; // Executa nota2 / 2 e depois soma com nota1
 }
- A Solução Aplicada
-A correção aplicada garantiu a precedência da soma das notas antes de realizar a divisão por dois, utilizando tipos de ponto flutuante adequados para evitar truncamento de valores.
+A Solucao Aplicada
+A correcao aplicada garantiu a precedencia da soma das notas antes de realizar a divisao por dois, utilizando tipos de ponto flutuante adequados para evitar truncamento de valores.
 
-Código Corrigido:
+Codigo Corrigido:
 
 Java
 public double calcularMedia(double nota1, double nota2) {
     return (nota1 + nota2) / 2.0; // Soma primeiro, divide depois
 }
- Estrutura dos Testes Automatizados (JUnit 5)
-Foi desenvolvida uma suíte de testes com a asserção assertEquals para validar o comportamento do método antes e depois da refatoração:
+Estrutura dos Testes Automatizados (JUnit 5)
+Foi desenvolvida uma suite de testes com a assercao assertEquals para validar o comportamento do metodo antes e depois da refatoracao:
 
-testCalcularMediaChamada2: Valida o cenário onde as notas de entrada são 7.0 e 9.0. A média esperada para este cenário é rigidamente 8.0.
+testCalcularMediaChamada2: Valida o cenario onde as notas de entrada sao 7.0 e 9.0. A media esperada para este cenario e rigidamente 8.0.
 
-Antes da correção: O sistema retornava 11.5 e o teste falhava.
+Antes da correcao: O sistema retornava 11.5 e o teste falhava.
 
-Após a correção: O sistema passou a retornar 8.0 e o teste obteve sucesso.
+Apos a correcao: O sistema passou a retornar 8.0 e o teste obteve sucesso.
 
- Como Rodar o Projeto Localmente
-Pré-requisitos
-Java JDK instalado (versão 17 ou superior recomendada).
+Como Rodar o Projeto Localmente
+Pre-requisitos
+Java JDK instalado (versao 17 ou superior recomendada).
 
-VS Code com a extensão Extension Pack for Java ativada.
+VS Code com a extensao Extension Pack for Java ativada.
 
-Execução
-Como o projeto utiliza gerenciamento manual de dependências, os arquivos .jar necessários estão localizados na pasta lib/ e mapeados no ambiente.
+Execucao
+Como o projeto utiliza gerenciamento manual de dependencias, os arquivos .jar necessarios estao localizados na pasta lib/ e mapeados no ambiente.
 
 Abra o projeto no VS Code.
 
-Certifique-se de que as bibliotecas da pasta lib/ estão listadas em Referenced Libraries.
+Certifique-se de que as bibliotecas da pasta lib/ estao listadas em Referenced Libraries.
 
 Abra o arquivo ControleAcademicoServiceTest.java.
 
-Clique no botão Run acima do método de teste ou utilize o painel de Testing lateral para rodar a suíte.
+Clique no botao Run acima do metodo de teste ou utilize o painel de Testing lateral para rodar a suite.
