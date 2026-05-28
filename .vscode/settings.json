@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\Pedri\\Downloads\\junit-platform-commons-1.11.0.jar"
+        ],
+        "exclude": [
+            "lib/junit-platform-suite-commons-1.11.0.jar"
+        ]
+    }
+}
