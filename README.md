@@ -10,10 +10,10 @@ Este projeto faz parte de uma atividade prática de Engenharia de Software / Ver
 O sistema legado possuía um defeito crítico no método `calcularMedia` da classe `ControleAcademicoService`. Devido à **falta de parênteses para isolar a operação de soma**, o Java executava primeiro a divisão (por regras de precedência matemática), gerando médias completamente erradas.
 
 * **Código com Defeito:**
-  ```java
-  public double calcularMedia(double nota1, double nota2) {
-      return nota1 + nota2 / 2; // Executa nota2 / 2 e depois soma com nota1
-  }
+```java
+public double calcularMedia(double nota1, double nota2) {
+    return nota1 + nota2 / 2; // Executa nota2 / 2 e depois soma com nota1
+}
  A Solução Aplicada
 A correção aplicada garantiu a precedência da soma das notas antes de realizar a divisão por dois, utilizando tipos de ponto flutuante adequados para evitar truncamento de valores.
 
